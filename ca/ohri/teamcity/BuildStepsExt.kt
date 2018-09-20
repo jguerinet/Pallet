@@ -41,6 +41,9 @@ fun BuildSteps.commit(): BuildStep = script {
         # Commit
         git commit -m"Version ${'$'}version" || exit 1
 
+        # Pull
+        git pull --rebase || exit 1
+
         # Push
         git push origin || exit 1
     """.trimIndent()
