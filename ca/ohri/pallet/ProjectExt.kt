@@ -44,7 +44,7 @@ fun mHealthProject(youTrackId: String, youTrackPassword: String, init: Project.(
 /**
  * Sets the order of the Build Types based on the order of the [ids]
  */
-fun Project.setOrder(ids: List<String>) {
+fun Project.setOrder(vararg ids: String) {
     buildTypesOrderIds = ids.map { RelativeId(it) }
 }
 
