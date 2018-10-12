@@ -16,6 +16,7 @@ import jetbrains.buildServer.configs.kotlin.v2018_1.triggers.vcs
  */
 object Type {
 
+    const val MERGES = "Merges"
     const val CANARY = "Canary"
     const val ALPHA = "Alpha"
     const val RELEASE = "Release"
