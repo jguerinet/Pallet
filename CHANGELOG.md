@@ -1,5 +1,9 @@
 # Change Log
 
+## Version 1.0.3 ()
+
+-   Remove the `commitPublisher` from the `Key` object
+
 ## Version 1.0.2 (2018-10-12)
 
 -   Added the Merges Build Type
