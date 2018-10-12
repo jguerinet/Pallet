@@ -9,5 +9,8 @@
         <module name="TeamCityExt" />
       </profile>
     </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="TeamCityExt" target="1.5" />
+    </bytecodeTargetLevel>
   </component>
 </project>

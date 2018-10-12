@@ -1,3 +1,7 @@
+/*
+ * Copyright 2015-2018 Ottawa mHealth. All rights reserved.
+ */
+
 package ca.ohri.teamcity
 
 import jetbrains.buildServer.configs.kotlin.v2018_1.BuildFeature
@@ -19,3 +23,12 @@ fun BuildFeatures.tag(): BuildFeature = vcsLabeling {
     labelingPattern = "%env.version%"
     successfulOnly = true
 }
+
+fun BuildFeatures.gitHubPr(vcsRootId: String, targetBranch: String = "master"): BuildFeature =
+        feature {
+            type = "pullRequests"
+            param("filterAuthorRole", "MEMBER")
+            param("vcsRootId", vcsRootId)
+            param("authenticationType", "vcsRoot")
+            param("filterTargetBranch", targetBranch)
+        }

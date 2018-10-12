@@ -1,3 +1,7 @@
+/*
+ * Copyright 2015-2018 Ottawa mHealth. All rights reserved.
+ */
+
 package ca.ohri.teamcity
 
 import jetbrains.buildServer.configs.kotlin.v2018_1.BuildFeatures

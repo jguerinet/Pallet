@@ -1,3 +1,7 @@
+/*
+ * Copyright 2015-2018 Ottawa mHealth. All rights reserved.
+ */
+
 package ca.ohri.teamcity
 
 import jetbrains.buildServer.configs.kotlin.v2018_1.BuildStep
@@ -24,7 +28,7 @@ fun BuildSteps.incrementBuildAndroid(): BuildStep = gradle {
  */
 fun BuildSteps.assembleAndroid(title: String): BuildStep = gradle {
     name = "Assemble APK"
-    tasks = "clean assemble${title.capitalize()}"
+    tasks = "clean assemble$title"
 }
 
 /**
@@ -38,14 +42,14 @@ fun BuildSteps.testAndroid(): BuildStep = gradle {
 /**
  * Returns a build step to extract the current version on Android
  */
-fun BuildSteps.extractAndroid(): BuildStep = script {
+fun BuildSteps.extractAndroid(title: String): BuildStep = script {
     name = "Extract Version"
     scriptContent = """
         # Get the latest build tools
         export BUILD_TOOLS=${'$'}(${'$'}ANDROID_HOME/tools/bin/sdkmanager --list | grep "build-tools/" | awk '{ print ${'$'}3 }' | tail -1)
 
         # Grab the version name from the generated APK
-        export VERSION=${'$'}(${'$'}ANDROID_HOME/build-tools/${'$'}BUILD_TOOLS/aapt dump badging app/build/outputs/apk/canary/app-canary.apk | grep versionName | awk '{print ${'$'}4}' | grep -o [0-9].*[0-9])
+        export VERSION=${'$'}(${'$'}ANDROID_HOME/build-tools/${'$'}BUILD_TOOLS/aapt dump badging app/build/outputs/apk/$title/app-$title.apk | grep versionName | awk '{print ${'$'}4}' | grep -o [0-9].*[0-9])
 
         echo "##teamcity[setParameter name='env.version' value='${'$'}VERSION']"
     """.trimIndent()

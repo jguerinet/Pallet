@@ -1,11 +1,12 @@
+/*
+ * Copyright 2015-2018 Ottawa mHealth. All rights reserved.
+ */
+
 package ca.ohri.teamcity
 
 import jetbrains.buildServer.configs.kotlin.v2018_1.BuildStep
 import jetbrains.buildServer.configs.kotlin.v2018_1.BuildSteps
-import jetbrains.buildServer.configs.kotlin.v2018_1.BuildType
-import jetbrains.buildServer.configs.kotlin.v2018_1.buildSteps.gradle
 import jetbrains.buildServer.configs.kotlin.v2018_1.buildSteps.script
-import jetbrains.buildServer.configs.kotlin.v2018_1.ui.insert
 
 /**
  * Generic BuildStep extensions
@@ -26,7 +27,7 @@ fun BuildSteps.gem(): BuildStep = script {
  */
 fun BuildSteps.deploy(lane: String): BuildStep = script {
     name = "Deploy"
-    scriptContent = "bundle exec fastlane $lane"
+    scriptContent = "bundle exec fastlane ${lane.toLowerCase()}"
 }
 
 /**
