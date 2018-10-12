@@ -12,7 +12,7 @@ import jetbrains.buildServer.configs.kotlin.v2018_1.ui.add
 import jetbrains.buildServer.configs.kotlin.v2018_1.vcs.GitVcsRoot
 
 /** Common Git Username for connecting to Git */
-val gitUsername = "mHealthAdmin"
+const val GIT_USERNAME = "mHealthAdmin"
 
 /**
  * Initializes an mHealth project with the [init] function. Uses the [youTrackPassword] to sign into
