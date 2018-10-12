@@ -1,4 +1,4 @@
-package ca.ohri.teamcity
+package ca.ohri.pallet
 
 import jetbrains.buildServer.configs.kotlin.v2018_1.BuildStep
 import jetbrains.buildServer.configs.kotlin.v2018_1.BuildSteps
@@ -45,7 +45,7 @@ fun BuildSteps.extractIos(isBuildNumberIncluded: Boolean = false): BuildStep = s
         fi
 
 
-        echo "##teamcity[setParameter name='env.version' value='${'$'}VERSION']"
+        echo "##pallet[setParameter name='env.version' value='${'$'}VERSION']"
     """.trimIndent()
 }
 

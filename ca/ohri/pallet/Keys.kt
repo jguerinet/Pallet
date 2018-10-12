@@ -1,4 +1,4 @@
-package ca.ohri.teamcity
+package ca.ohri.pallet
 
 /**
  * Set of credentials we use for various parts of the build process

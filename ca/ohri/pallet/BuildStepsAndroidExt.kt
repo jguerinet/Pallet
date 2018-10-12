@@ -2,7 +2,7 @@
  * Copyright 2015-2018 Ottawa mHealth. All rights reserved.
  */
 
-package ca.ohri.teamcity
+package ca.ohri.pallet
 
 import jetbrains.buildServer.configs.kotlin.v2018_1.BuildStep
 import jetbrains.buildServer.configs.kotlin.v2018_1.BuildSteps
@@ -51,6 +51,6 @@ fun BuildSteps.extractAndroid(title: String): BuildStep = script {
         # Grab the version name from the generated APK
         export VERSION=${'$'}(${'$'}ANDROID_HOME/build-tools/${'$'}BUILD_TOOLS/aapt dump badging app/build/outputs/apk/$title/app-$title.apk | grep versionName | awk '{print ${'$'}4}' | grep -o [0-9].*[0-9])
 
-        echo "##teamcity[setParameter name='env.version' value='${'$'}VERSION']"
+        echo "##pallet[setParameter name='env.version' value='${'$'}VERSION']"
     """.trimIndent()
 }
