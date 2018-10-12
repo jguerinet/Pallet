@@ -5,6 +5,7 @@
 package ca.ohri.pallet
 
 import jetbrains.buildServer.configs.kotlin.v2018_1.Project
+import jetbrains.buildServer.configs.kotlin.v2018_1.RelativeId
 import jetbrains.buildServer.configs.kotlin.v2018_1.VcsRoot
 import jetbrains.buildServer.configs.kotlin.v2018_1.project
 import jetbrains.buildServer.configs.kotlin.v2018_1.projectFeatures.youtrack
@@ -38,6 +39,13 @@ fun mHealthProject(youTrackId: String, youTrackPassword: String, init: Project.(
             }
         }
     }
+}
+
+/**
+ * Sets the order of the Build Types based on the order of the [ids]
+ */
+fun Project.setOrder(ids: List<String>) {
+    buildTypesOrderIds = ids.map { RelativeId(it) }
 }
 
 /**
