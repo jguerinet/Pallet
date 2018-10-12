@@ -2,7 +2,7 @@
 <project>
     <modelVersion>4.0.0</modelVersion>
     <groupId>ca.ohri</groupId>
-    <artifactId>TeamCityExt</artifactId>
+    <artifactId>Pallet</artifactId>
     <version>1.0.0</version>
 
     <parent>
