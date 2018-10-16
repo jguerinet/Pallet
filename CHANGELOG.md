@@ -1,6 +1,10 @@
 # Change Log
 
-## Version 1.0.3 ()
+## Version 1.0.4 (2018-10-16)
+
+-   Fix bugs from renaming to pallet. 
+
+## Version 1.0.3 (2018-10-12)
 
 -   Remove the `commitPublisher` from the `Key` object
 
