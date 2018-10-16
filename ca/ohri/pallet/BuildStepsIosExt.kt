@@ -45,7 +45,7 @@ fun BuildSteps.extractIos(isBuildNumberIncluded: Boolean = false): BuildStep = s
         fi
 
 
-        echo "##pallet[setParameter name='env.version' value='${'$'}VERSION']"
+        echo "##teamcity[setParameter name='env.version' value='${'$'}VERSION']"
     """.trimIndent()
 }
 

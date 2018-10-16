@@ -51,6 +51,6 @@ fun BuildSteps.extractAndroid(title: String): BuildStep = script {
         # Grab the version name from the generated APK
         export VERSION=${'$'}(${'$'}ANDROID_HOME/build-tools/${'$'}BUILD_TOOLS/aapt dump badging app/build/outputs/apk/$title/app-$title.apk | grep versionName | awk '{print ${'$'}4}' | grep -o [0-9].*[0-9])
 
-        echo "##pallet[setParameter name='env.version' value='${'$'}VERSION']"
+        echo "##teamcity[setParameter name='env.version' value='${'$'}VERSION']"
     """.trimIndent()
 }

@@ -18,5 +18,5 @@ import jetbrains.buildServer.configs.kotlin.v2018_1.BuildFeatures
 fun BuildFeatures.testReportAndroid() = feature {
     type = "xml-report-plugin"
     param("xmlReportParsing.reportType", "gtest")
-    param("xmlReportParsing.reportDirs", "+:%pallet.build.checkoutDir%/app/build/outputs/androidTest-results/connected/**.xml")
+    param("xmlReportParsing.reportDirs", "+:%teamcity.build.checkoutDir%/app/build/outputs/androidTest-results/connected/**.xml")
 }
