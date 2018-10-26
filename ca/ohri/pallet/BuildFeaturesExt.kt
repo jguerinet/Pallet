@@ -24,11 +24,15 @@ fun BuildFeatures.tag(): BuildFeature = vcsLabeling {
     successfulOnly = true
 }
 
+/**
+ * Returns a BuildFeature to only run a job if the PR on the [vcsRootId] is targeting the
+ *  [targetBranch] (defaults to master)
+ */
 fun BuildFeatures.gitHubPr(vcsRootId: String, targetBranch: String = "master"): BuildFeature =
         feature {
             type = "pullRequests"
             param("filterAuthorRole", "MEMBER")
             param("vcsRootId", vcsRootId)
             param("authenticationType", "vcsRoot")
-            param("filterTargetBranch", targetBranch)
+            param("filterTargetBranch", "refs/heads/$targetBranch")
         }

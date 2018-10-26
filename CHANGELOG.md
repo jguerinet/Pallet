@@ -1,5 +1,9 @@
 # Change Log
 
+## Version 1.0.5 (2018-10-26)
+
+-   Fix bug on the `gitHubPr()` feature
+
 ## Version 1.0.4 (2018-10-16)
 
 -   Fix bugs from renaming to pallet. 
