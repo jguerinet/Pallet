@@ -50,6 +50,14 @@ fun BuildSteps.extractIos(isBuildNumberIncluded: Boolean = false): BuildStep = s
 }
 
 /**
+ * Returns a build step to run Carthage on iOS
+ */
+fun BuildSteps.carthageIos(): BuildStep = script {
+    name = "Carthage"
+    scriptContent = "carthage bootstrap"
+}
+
+/**
  * Returns a build step to install the pods on iOS
  */
 fun BuildSteps.podsIos(): BuildStep = script {
