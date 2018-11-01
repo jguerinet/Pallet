@@ -1,5 +1,9 @@
 # Change Log
 
+## Version 1.0.6 (2018-11-01)
+
+-   Add a `carthageIos()` build step
+
 ## Version 1.0.5 (2018-10-26)
 
 -   Fix bug on the `gitHubPr()` feature
