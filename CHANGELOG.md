@@ -1,5 +1,9 @@
 # Change Log
 
+## Version 1.1.0 (2018-11-07)
+
+-   Remove the YouTrack initialization code (this is now done at the root project level in TC)
+
 ## Version 1.0.6 (2018-11-01)
 
 -   Add a `carthageIos()` build step
