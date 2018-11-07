@@ -5,4 +5,4 @@ package ca.ohri.pallet
  * @author Julien Guerinet
  * @since 1.0.0
  */
-class Keys(val git: String, val youTrack: String)
+class Keys(val git: String)

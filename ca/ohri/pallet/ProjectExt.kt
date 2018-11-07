@@ -7,39 +7,10 @@ package ca.ohri.pallet
 import jetbrains.buildServer.configs.kotlin.v2018_1.Project
 import jetbrains.buildServer.configs.kotlin.v2018_1.RelativeId
 import jetbrains.buildServer.configs.kotlin.v2018_1.VcsRoot
-import jetbrains.buildServer.configs.kotlin.v2018_1.project
-import jetbrains.buildServer.configs.kotlin.v2018_1.projectFeatures.youtrack
-import jetbrains.buildServer.configs.kotlin.v2018_1.ui.add
 import jetbrains.buildServer.configs.kotlin.v2018_1.vcs.GitVcsRoot
 
 /** Common Git Username for connecting to Git */
 const val GIT_USERNAME = "mHealthAdmin"
-
-/**
- * Initializes an mHealth project with the [init] function. Uses the [youTrackPassword] to sign into
- *  YouTrack (assumes the admin is signing in) for the feature with the [youTrackId]
- */
-fun mHealthProject(youTrackId: String, youTrackPassword: String, init: Project.() -> Unit) {
-    project {
-
-        init()
-
-        // Always add YouTrack
-        features {
-            add {
-                youtrack {
-                    id = youTrackId
-                    displayName = "YouTrack"
-                    host = "https://ottawamhealth.myjetbrains.com/youtrack"
-                    userName = "ottawamhealth"
-                    password = youTrackPassword
-                    projectExtIds = ""
-                    useAutomaticIds = true
-                }
-            }
-        }
-    }
-}
 
 /**
  * Sets the order of the Build Types based on the order of the [ids]
