@@ -62,8 +62,14 @@ fun Project.setOrder(vararg ids: String) {
  *  listen to. It uses the [branch] as the default branch (null if it's the Git default branch).
  *  The [authUsername] and [authPassword] are used to sign into Git
  */
-fun gitVcsRoot(id: String, url: String, authUsername: String, authPassword: String,
-        branchSpec: String, branch: String? = null): VcsRoot = GitVcsRoot {
+fun gitVcsRoot(
+    id: String,
+    url: String,
+    authUsername: String,
+    authPassword: String,
+    branchSpec: String,
+    branch: String? = null
+): VcsRoot = GitVcsRoot {
     id(id)
     name = id
     this.url = url

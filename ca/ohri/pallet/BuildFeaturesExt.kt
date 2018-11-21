@@ -29,10 +29,10 @@ fun BuildFeatures.tag(): BuildFeature = vcsLabeling {
  *  [targetBranch] (defaults to master)
  */
 fun BuildFeatures.gitHubPr(vcsRootId: String, targetBranch: String = "master"): BuildFeature =
-        feature {
-            type = "pullRequests"
-            param("filterAuthorRole", "MEMBER")
-            param("vcsRootId", vcsRootId)
-            param("authenticationType", "vcsRoot")
-            param("filterTargetBranch", "refs/heads/$targetBranch")
-        }
+    feature {
+        type = "pullRequests"
+        param("filterAuthorRole", "MEMBER")
+        param("vcsRootId", vcsRootId)
+        param("authenticationType", "vcsRoot")
+        param("filterTargetBranch", Git.getHeadsRef(targetBranch))
+    }

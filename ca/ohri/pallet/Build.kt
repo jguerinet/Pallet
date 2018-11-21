@@ -33,16 +33,17 @@ object Type {
  *  (defaults to 50). The [init] block allows you to initialize other things, such as build
  *  features and steps.
  */
-fun Project.build(title: String,
-        commitStatusPublisherKey: String,
-        shouldTriggerOnCommit: Boolean = true,
-        referenceName: String = "",
-        vcsRootId: Id = DslContext.settingsRoot.id!!,
-        shouldBuildDefaultBranch: Boolean = false,
-        artifactsPath: String? = null,
-        artifactBuilds: Int = 10,
-        historyBuilds: Int = 50,
-        init: BuildType.() -> Unit
+fun Project.build(
+    title: String,
+    commitStatusPublisherKey: String,
+    shouldTriggerOnCommit: Boolean = true,
+    referenceName: String = "",
+    vcsRootId: Id = DslContext.settingsRoot.id!!,
+    shouldBuildDefaultBranch: Boolean = false,
+    artifactsPath: String? = null,
+    artifactBuilds: Int = 10,
+    historyBuilds: Int = 50,
+    init: BuildType.() -> Unit
 ): BuildType {
 
     return buildType {
