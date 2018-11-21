@@ -1,5 +1,10 @@
 # Change Log
 
+## Version 2.0.0 (2018-11-21)
+
+-   Add a bunch of Git related functions and static variables
+-   Switch to `master` being production, and `develop` being development
+
 ## Version 1.1.0 (2018-11-07)
 
 -   Remove the YouTrack initialization code (this is now done at the root project level in TC)
