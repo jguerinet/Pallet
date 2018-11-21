@@ -1,8 +1,13 @@
 # Change Log
 
+## Version 2.0.1 (2018-11-21)
+
+-   Added a few more Constants
+-   Added method to set up the Releases/Hotfixes Vcs Root more easily  
+
 ## Version 2.0.0 (2018-11-21)
 
--   Add a bunch of Git related functions and static variables
+-   Added a bunch of Git related functions and static variables
 -   Switch to `master` being production, and `develop` being development
 
 ## Version 1.1.0 (2018-11-07)
