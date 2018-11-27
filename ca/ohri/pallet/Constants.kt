@@ -7,6 +7,9 @@ object Id {
 
     /** Relative Id of the Merges VCS Root */
     const val MERGES = "Merges"
+
+    /** Relative Id of the Develop Root */
+    const val DEVELOP = "Develop"
 }
 
 object Git {
@@ -19,9 +22,6 @@ object Git {
 
     /** Develop branch constant */
     const val DEVELOP = "develop"
-
-    /** Release branch constant */
-    const val RELEASE = "release"
 
     /** Releases formatting branch constant */
     const val RELEASES = "(release-*)"

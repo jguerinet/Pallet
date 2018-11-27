@@ -81,4 +81,4 @@ fun Project.releasesHotfixesVcsRoot(
  * Adds a Git Vcs root for the develop branch. Uses the [url] and the [authPassword]. Calls [gitVcsRoot]
  */
 fun Project.developVcsRoot(url: String, authPassword: String) =
-    vcsRoot(gitVcsRoot(Git.DEVELOP.capitalize(), url, authPassword, branch = Git.DEVELOP))
+    vcsRoot(gitVcsRoot(Id.DEVELOP, url, authPassword, branch = Git.DEVELOP))
