@@ -1,11 +1,10 @@
 package ca.ohri.pallet
 
-import jetbrains.buildServer.configs.kotlin.v2018_1.BuildFeature
-import jetbrains.buildServer.configs.kotlin.v2018_1.BuildFeatures
-import jetbrains.buildServer.configs.kotlin.v2018_1.BuildType
+import jetbrains.buildServer.configs.kotlin.v2018_1.*
 import jetbrains.buildServer.configs.kotlin.v2018_1.Id
 import jetbrains.buildServer.configs.kotlin.v2018_1.buildFeatures.commitStatusPublisher
 import jetbrains.buildServer.configs.kotlin.v2018_1.buildFeatures.vcsLabeling
+import jetbrains.buildServer.configs.kotlin.v2018_1.buildSteps.script
 import jetbrains.buildServer.configs.kotlin.v2018_1.triggers.vcs
 
 class PalletBuildType(
@@ -84,6 +83,8 @@ class PalletBuildType(
         }
     }
 
+    /* Build Features */
+
     /**
      * Returns a BuildFeature to add a git tag with the version if the build is successful
      */
@@ -104,4 +105,14 @@ class PalletBuildType(
             param("authenticationType", "vcsRoot")
             param("filterTargetBranch", Git.getHeadsRef(targetBranch))
         }
+
+    /* Build Steps - Android */
+
+    /**
+     * Returns a build step to deploy the current version using the build type
+     */
+    fun BuildSteps.deploy(): BuildStep = script {
+        name = "Deploy"
+        scriptContent = "bundle exec fastlane ${this@PalletBuildType.buildType.toLowerCase()}"
+    }
 }

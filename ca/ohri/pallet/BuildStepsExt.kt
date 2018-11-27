@@ -23,14 +23,6 @@ fun BuildSteps.gem(): BuildStep = script {
 }
 
 /**
- * Returns a build step to deploy the current version using the [lane]
- */
-fun BuildSteps.deploy(lane: String): BuildStep = script {
-    name = "Deploy"
-    scriptContent = "bundle exec fastlane ${lane.toLowerCase()}"
-}
-
-/**
  * Returns a build step to commit the changes on Git
  */
 fun BuildSteps.commit(): BuildStep = script {
