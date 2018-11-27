@@ -1,14 +1,17 @@
 package ca.ohri.pallet
 
+import jetbrains.buildServer.configs.kotlin.v2018_1.BuildFeature
+import jetbrains.buildServer.configs.kotlin.v2018_1.BuildFeatures
 import jetbrains.buildServer.configs.kotlin.v2018_1.BuildType
 import jetbrains.buildServer.configs.kotlin.v2018_1.Id
 import jetbrains.buildServer.configs.kotlin.v2018_1.buildFeatures.commitStatusPublisher
+import jetbrains.buildServer.configs.kotlin.v2018_1.buildFeatures.vcsLabeling
 import jetbrains.buildServer.configs.kotlin.v2018_1.triggers.vcs
 
 class PalletBuildType(
     val buildType: String,
     gitKey: String,
-    vcsRootId: Id,
+    val vcsRootId: Id,
     shouldTriggerOnCommit: Boolean = true,
     referenceName: String = "",
     shouldBuildDefaultBranch: Boolean = false,
@@ -39,9 +42,9 @@ class PalletBuildType(
             param("env.version", "0.0.0")
         }
 
-        // Attack this VCS url
+        // Attach this VCS url
         vcs {
-            root(vcsRootId)
+            root(this@PalletBuildType.vcsRootId)
             buildDefaultBranch = shouldBuildDefaultBranch
         }
 
@@ -80,4 +83,25 @@ class PalletBuildType(
             }
         }
     }
+
+    /**
+     * Returns a BuildFeature to add a git tag with the version if the build is successful
+     */
+    fun BuildFeatures.tag(): BuildFeature = vcsLabeling {
+        this.vcsRootId = vcsRootId
+        labelingPattern = "%env.version%"
+        successfulOnly = true
+    }
+
+    /**
+     * Returns a BuildFeature to only run a job if the PR \is targeting the [targetBranch] (defaults to [Git.DEVELOP])
+     */
+    fun BuildFeatures.gitHubPr(targetBranch: String = Git.DEVELOP) =
+        feature {
+            type = "pullRequests"
+            param("filterAuthorRole", "MEMBER")
+            param("vcsRootId", this@PalletBuildType.vcsRootId.value)
+            param("authenticationType", "vcsRoot")
+            param("filterTargetBranch", Git.getHeadsRef(targetBranch))
+        }
 }
