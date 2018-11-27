@@ -23,7 +23,8 @@ This repository follows [Git Flow](https://nvie.com/posts/a-successful-git-branc
 -   Any other branches are either feature branches or bugfix branches.
 
 ## Contributors
-* [Julien Guerinet](https://github.com/jguerinet)
+
+-   [Julien Guerinet](https://github.com/jguerinet)
 
 ## Version History
 See the [Change Log](CHANGELOG.md).

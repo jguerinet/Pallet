@@ -1,13 +1,13 @@
 # Change Log
 
-## Version 2.0.1 (2018-11-21)
+## Version 3.0.0 (2018-11-27)
 
--   Added a few more Constants
--   Added method to set up the Releases/Hotfixes Vcs Root more easily  
+-   More opinionated on branches (master/develop setup)
+-   Added method to initiate a Pallet project with the right Vcs roots
 
 ## Version 2.0.0 (2018-11-21)
 
--   Added a bunch of Git related functions and static variables
+-   Add a bunch of Git related functions and static variables
 -   Switch to `master` being production, and `develop` being development
 
 ## Version 1.1.0 (2018-11-07)
