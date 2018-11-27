@@ -35,7 +35,7 @@ object Type {
  */
 fun Project.build(
     title: String,
-    commitStatusPublisherKey: String,
+    gitKey: String,
     vcsRootId: Id,
     shouldTriggerOnCommit: Boolean = true,
     referenceName: String = "",
@@ -103,7 +103,7 @@ fun Project.build(
                 publisher = github {
                     githubUrl = "https://api.github.com"
                     authType = personalToken {
-                        token = commitStatusPublisherKey
+                        token = gitKey
                     }
                 }
             }
