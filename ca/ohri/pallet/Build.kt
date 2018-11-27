@@ -36,9 +36,9 @@ object Type {
 fun Project.build(
     title: String,
     commitStatusPublisherKey: String,
+    vcsRootId: Id,
     shouldTriggerOnCommit: Boolean = true,
     referenceName: String = "",
-    vcsRootId: Id = DslContext.settingsRoot.id!!,
     shouldBuildDefaultBranch: Boolean = false,
     artifactsPath: String? = null,
     artifactBuilds: Int = 10,
@@ -110,16 +110,6 @@ fun Project.build(
         }
     }
 }
-
-/**
- * Creates and returns the reference to the branch with [branchName]
- */
-fun branch(branchName: String) = "+:refs/heads/$branchName"
-
-/**
- * Creates and returns the reference to a pull request to the default branch
- */
-fun pr() = "+:refs/pull/*/merge"
 
 /**
  * Creates and returns the path to the android artifacts for the [buildType]
