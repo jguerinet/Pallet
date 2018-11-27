@@ -19,12 +19,11 @@ fun Project.setOrder(vararg ids: String) {
 /**
  * Creates a Git Vcs root using the [id] as the Id and name, the Git [url], and the [branchSpec] to
  *  listen to. It uses the [branch] as the default branch (null if it's the Git default branch).
- *  The [authUsername] and [authPassword] are used to sign into Git
+ *  The [authPassword] is used to sign into Git
  */
 fun gitVcsRoot(
     id: String,
     url: String,
-    authUsername: String,
     authPassword: String,
     branchSpec: String,
     branch: String? = null
@@ -37,7 +36,7 @@ fun gitVcsRoot(
     }
     this.branchSpec = branchSpec
     authMethod = password {
-        userName = authUsername
+        userName = Git.USERNAME
         password = authPassword
     }
     userNameStyle = GitVcsRoot.UserNameStyle.FULL
@@ -52,7 +51,10 @@ fun gitReleasesHotfixesVcsRoot(
     authPassword: String,
     branch: String? = null
 ): VcsRoot = gitVcsRoot(
-    Id.RELEASES_HOTFIXES, url, Git.USERNAME, authPassword, """
+    Id.RELEASES_HOTFIXES,
+    url,
+    authPassword,
+    """
     ${Git.getHeadsRef(Git.RELEASES)}
     ${Git.getHeadsRef(Git.HOTFIXES)}
     """.trimIndent(),
