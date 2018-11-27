@@ -1,5 +1,10 @@
 # Change Log
 
+## Version 3.0.0 (2018-11-27)
+
+-   Added the new `PalletProject` and `PalletBuildType` classes to ease project setup
+-   Removed using the settings root Id everywhere
+
 ## Version 2.0.1 (2018-11-21)
 
 -   Added a few more Constants
