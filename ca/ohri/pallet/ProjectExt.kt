@@ -25,7 +25,7 @@ fun gitVcsRoot(
     id: String,
     url: String,
     authPassword: String,
-    branchSpec: String,
+    branchSpec: String? = null,
     branch: String? = null
 ): VcsRoot = GitVcsRoot {
     id(id)
@@ -34,7 +34,9 @@ fun gitVcsRoot(
     if (branch != null) {
         this.branch = Git.getHeadsRef(branch)
     }
-    this.branchSpec = branchSpec
+    if (branchSpec != null) {
+        this.branchSpec = branchSpec
+    }
     authMethod = password {
         userName = Git.USERNAME
         password = authPassword

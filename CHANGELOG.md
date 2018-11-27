@@ -1,5 +1,10 @@
 # Change Log
 
+## Version 3.0.1 (2018-11-27)
+
+-   Added Vcs root to the `PalletProject` to track the `develop` branch of a project
+-   Now auto-attaching the `develop` and `releases-hotfixes` Vcs roots to a project
+
 ## Version 3.0.0 (2018-11-27)
 
 -   Added the new `PalletProject` and `PalletBuildType` classes to ease project setup
