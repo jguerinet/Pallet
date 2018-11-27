@@ -4,6 +4,7 @@ import jetbrains.buildServer.configs.kotlin.v2018_1.*
 import jetbrains.buildServer.configs.kotlin.v2018_1.Id
 import jetbrains.buildServer.configs.kotlin.v2018_1.buildFeatures.commitStatusPublisher
 import jetbrains.buildServer.configs.kotlin.v2018_1.buildFeatures.vcsLabeling
+import jetbrains.buildServer.configs.kotlin.v2018_1.buildSteps.gradle
 import jetbrains.buildServer.configs.kotlin.v2018_1.buildSteps.script
 import jetbrains.buildServer.configs.kotlin.v2018_1.triggers.vcs
 
@@ -106,7 +107,7 @@ class PalletBuildType(
             param("filterTargetBranch", Git.getHeadsRef(targetBranch))
         }
 
-    /* Build Steps - Android */
+    /* Build Steps */
 
     /**
      * Returns a build step to deploy the current version using the build type
@@ -114,5 +115,33 @@ class PalletBuildType(
     fun BuildSteps.deploy(): BuildStep = script {
         name = "Deploy"
         scriptContent = "bundle exec fastlane ${this@PalletBuildType.buildType.toLowerCase()}"
+    }
+
+    /* Build Steps - Android */
+
+    /**
+     * Returns a build step to assemble the APK on Android
+     */
+    fun BuildSteps.assembleAndroid(): BuildStep = gradle {
+        name = "Assemble APK"
+        tasks = "clean assemble${this@PalletBuildType.buildType}"
+    }
+
+    /**
+     * Returns a build step to extract the current version on Android
+     */
+    fun BuildSteps.extractAndroid(): BuildStep = script {
+        val title = this@PalletBuildType.buildType
+
+        name = "Extract Version"
+        scriptContent = """
+        # Get the latest build tools
+        export BUILD_TOOLS=${'$'}(${'$'}ANDROID_HOME/tools/bin/sdkmanager --list | grep "build-tools/" | awk '{ print ${'$'}3 }' | tail -1)
+
+        # Grab the version name from the generated APK
+        export VERSION=${'$'}(${'$'}ANDROID_HOME/build-tools/${'$'}BUILD_TOOLS/aapt dump badging app/build/outputs/apk/$title/app-$title.apk | grep versionName | awk '{print ${'$'}4}' | grep -o [0-9].*[0-9])
+
+        echo "##teamcity[setParameter name='env.version' value='${'$'}VERSION']"
+    """.trimIndent()
     }
 }
