@@ -46,16 +46,6 @@ fun PalletProject.build(
     )
 
 /**
- * Creates and returns the reference to the branch with [branchName]
- */
-fun branch(branchName: String) = "+:refs/heads/$branchName"
-
-/**
- * Creates and returns the reference to a pull request to the default branch
- */
-fun pr() = "+:refs/pull/*/merge"
-
-/**
  * Creates and returns the path to the android artifacts for the [buildType]
  */
 fun artifactsAndroid(buildType: String) = "app/build/outputs/apk/$buildType/*.apk"
