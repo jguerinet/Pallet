@@ -24,6 +24,14 @@ fun BuildSteps.incrementBuildAndroid(): BuildStep = gradle {
 }
 
 /**
+ * Returns a build step to run a Gradle command. Displays the [name] and runs the [task] (defaults to the name)
+ */
+fun BuildSteps.gradle(name: String, task: String = name.toLowerCase()) = gradle {
+    this.name = name
+    tasks = task
+}
+
+/**
  * Returns a build step to assemble the APK with the [title] on Android
  */
 fun BuildSteps.assembleAndroid(title: String): BuildStep = gradle {
