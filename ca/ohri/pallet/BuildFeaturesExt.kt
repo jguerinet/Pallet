@@ -7,6 +7,7 @@ package ca.ohri.pallet
 import jetbrains.buildServer.configs.kotlin.v2018_1.BuildFeature
 import jetbrains.buildServer.configs.kotlin.v2018_1.BuildFeatures
 import jetbrains.buildServer.configs.kotlin.v2018_1.Id
+import jetbrains.buildServer.configs.kotlin.v2018_1.buildFeatures.PullRequests
 import jetbrains.buildServer.configs.kotlin.v2018_1.buildFeatures.pullRequests
 import jetbrains.buildServer.configs.kotlin.v2018_1.buildFeatures.vcsLabeling
 
@@ -30,7 +31,9 @@ fun BuildFeatures.tag(vcsRootId: Id): BuildFeature = vcsLabeling {
  */
 fun BuildFeatures.gitHubPr(targetBranch: String = Git.DEVELOP): BuildFeature =
     pullRequests {
-        param("authenticationType", "vcsRoot")
-        param("filterAuthorRole", "MEMBER")
-        param("filterTargetBranch", Git.getHeadsRef(targetBranch))
+        provider = github {
+            authType = vcsRoot()
+            filterTargetBranch = Git.addHeadsRef(targetBranch)
+            filterAuthorRole = PullRequests.GitHubRoleFilter.MEMBER
+        }
     }
