@@ -4,7 +4,7 @@
 
 package ca.ohri.pallet
 
-import jetbrains.buildServer.configs.kotlin.v2018_1.BuildFeatures
+import jetbrains.buildServer.configs.kotlin.v2018_2.BuildFeatures
 
 /**
  * Android specific BuildFeatures extensions

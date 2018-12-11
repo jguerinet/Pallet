@@ -1,8 +1,8 @@
 package ca.ohri.pallet
 
-import jetbrains.buildServer.configs.kotlin.v2018_1.BuildStep
-import jetbrains.buildServer.configs.kotlin.v2018_1.BuildSteps
-import jetbrains.buildServer.configs.kotlin.v2018_1.buildSteps.script
+import jetbrains.buildServer.configs.kotlin.v2018_2.BuildStep
+import jetbrains.buildServer.configs.kotlin.v2018_2.BuildSteps
+import jetbrains.buildServer.configs.kotlin.v2018_2.buildSteps.script
 
 /**
  * iOS specific BuildStep extensions

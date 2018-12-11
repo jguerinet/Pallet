@@ -4,11 +4,11 @@
 
 package ca.ohri.pallet
 
-import jetbrains.buildServer.configs.kotlin.v2018_1.Project
-import jetbrains.buildServer.configs.kotlin.v2018_1.RelativeId
-import jetbrains.buildServer.configs.kotlin.v2018_1.VcsRoot
-import jetbrains.buildServer.configs.kotlin.v2018_1.project
-import jetbrains.buildServer.configs.kotlin.v2018_1.vcs.GitVcsRoot
+import jetbrains.buildServer.configs.kotlin.v2018_2.Project
+import jetbrains.buildServer.configs.kotlin.v2018_2.RelativeId
+import jetbrains.buildServer.configs.kotlin.v2018_2.VcsRoot
+import jetbrains.buildServer.configs.kotlin.v2018_2.project
+import jetbrains.buildServer.configs.kotlin.v2018_2.vcs.GitVcsRoot
 
 /**
  * Prepares a project by adding the 2 Vcs roots needed for GitFlow

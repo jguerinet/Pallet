@@ -4,12 +4,12 @@
 
 package ca.ohri.pallet
 
-import jetbrains.buildServer.configs.kotlin.v2018_1.BuildFeature
-import jetbrains.buildServer.configs.kotlin.v2018_1.BuildFeatures
-import jetbrains.buildServer.configs.kotlin.v2018_1.Id
-import jetbrains.buildServer.configs.kotlin.v2018_1.buildFeatures.PullRequests
-import jetbrains.buildServer.configs.kotlin.v2018_1.buildFeatures.pullRequests
-import jetbrains.buildServer.configs.kotlin.v2018_1.buildFeatures.vcsLabeling
+import jetbrains.buildServer.configs.kotlin.v2018_2.BuildFeature
+import jetbrains.buildServer.configs.kotlin.v2018_2.BuildFeatures
+import jetbrains.buildServer.configs.kotlin.v2018_2.Id
+import jetbrains.buildServer.configs.kotlin.v2018_2.buildFeatures.PullRequests
+import jetbrains.buildServer.configs.kotlin.v2018_2.buildFeatures.pullRequests
+import jetbrains.buildServer.configs.kotlin.v2018_2.buildFeatures.vcsLabeling
 
 /**
  * Generic BuildFeature extensions
