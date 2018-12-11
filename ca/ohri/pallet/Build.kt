@@ -4,12 +4,12 @@
 
 package ca.ohri.pallet
 
-import jetbrains.buildServer.configs.kotlin.v2018_1.BuildType
-import jetbrains.buildServer.configs.kotlin.v2018_1.DslContext
-import jetbrains.buildServer.configs.kotlin.v2018_1.Id
-import jetbrains.buildServer.configs.kotlin.v2018_1.Project
-import jetbrains.buildServer.configs.kotlin.v2018_1.buildFeatures.commitStatusPublisher
-import jetbrains.buildServer.configs.kotlin.v2018_1.triggers.vcs
+import jetbrains.buildServer.configs.kotlin.v2018_2.BuildType
+import jetbrains.buildServer.configs.kotlin.v2018_2.DslContext
+import jetbrains.buildServer.configs.kotlin.v2018_2.Id
+import jetbrains.buildServer.configs.kotlin.v2018_2.Project
+import jetbrains.buildServer.configs.kotlin.v2018_2.buildFeatures.commitStatusPublisher
+import jetbrains.buildServer.configs.kotlin.v2018_2.triggers.vcs
 
 /**
  * Different conventional build types
