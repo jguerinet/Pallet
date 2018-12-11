@@ -1,5 +1,9 @@
 # Change Log
 
+## Version 3.1.0 (2018-12-11)
+
+-   Updated the new PR feature to use the new 2018.2 format
+
 ## Version 3.0.0 (2018-11-27)
 
 -   More opinionated on branches (master/develop setup)
