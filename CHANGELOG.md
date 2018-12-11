@@ -1,5 +1,9 @@
 # Change Log
 
+## Version 3.2.0 (2018-12-11)
+
+-   Update to TC 2018.2
+
 ## Version 3.1.1 (2018-12-11)
 
 -   Fixes to v3.1.0
