@@ -7,6 +7,7 @@ package ca.ohri.pallet
 import jetbrains.buildServer.configs.kotlin.v2018_1.BuildFeature
 import jetbrains.buildServer.configs.kotlin.v2018_1.BuildFeatures
 import jetbrains.buildServer.configs.kotlin.v2018_1.Id
+import jetbrains.buildServer.configs.kotlin.v2018_1.buildFeatures.pullRequests
 import jetbrains.buildServer.configs.kotlin.v2018_1.buildFeatures.vcsLabeling
 
 /**
@@ -25,14 +26,11 @@ fun BuildFeatures.tag(vcsRootId: Id): BuildFeature = vcsLabeling {
 }
 
 /**
- * Returns a BuildFeature to only run a job if the PR on the [vcsRootId] is targeting the
- *  [targetBranch] (defaults to [Git.DEVELOP])
+ * Returns a BuildFeature to only run a job if the PR is targeting the [targetBranch] (defaults to [Git.DEVELOP])
  */
-fun BuildFeatures.gitHubPr(vcsRootId: Id, targetBranch: String = Git.DEVELOP): BuildFeature =
-    feature {
-        type = "pullRequests"
-        param("filterAuthorRole", "MEMBER")
-        param("vcsRootId", vcsRootId.value)
+fun BuildFeatures.gitHubPr(targetBranch: String = Git.DEVELOP): BuildFeature =
+    pullRequests {
         param("authenticationType", "vcsRoot")
+        param("filterAuthorRole", "MEMBER")
         param("filterTargetBranch", Git.getHeadsRef(targetBranch))
     }
