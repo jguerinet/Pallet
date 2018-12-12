@@ -16,14 +16,6 @@ import jetbrains.buildServer.configs.kotlin.v2018_2.buildSteps.script
 fun BuildSteps.extractWeb(): BuildStep = script {
     name = "Extract version"
     scriptContent = """
-        # Grab the version from the package json
-        export VERSION = ${'$'}(cat package.json \
-          | grep version \
-          | head -1 \
-          | awk -F: '{ print ${'$'}2 }' \
-          | sed 's/[",]//g' \
-          | tr -d '[[:space:]]')
-
-        echo "##teamcity[setParameter name='env.version' value='${'$'}VERSION']"
+        ${setTeamCityVariable(extractPackageJsonVersion())}
     """.trimIndent()
 }
