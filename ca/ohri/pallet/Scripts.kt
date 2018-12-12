@@ -34,7 +34,7 @@ fun setPackageJsonVersion(oldVersion: String, newVersion: String) = """
  * Sets a team city variable [value] for the [name] (defaults to VERSION)
  */
 fun setTeamCityVariable(value: String, name: String = "VERSION") =
-    """echo "##teamcity[setParameter name='env.$name' value='${'$'}$value']" """
+    """echo "##teamcity[setParameter name='env.$name' value='$value']" """
 
 /**
  * Replaces the [oldText] with the [newText] in the file path
