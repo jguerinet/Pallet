@@ -1,7 +1,5 @@
 package ca.ohri.pallet
 
-import com.sun.tools.doclets.internal.toolkit.util.Util.replaceText
-
 /**
  * Ready-made scripts to be used within a script build step
  * @author Julien Guerinet
