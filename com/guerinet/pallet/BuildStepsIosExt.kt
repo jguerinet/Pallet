@@ -1,4 +1,4 @@
-package ca.ohri.pallet
+package com.guerinet.pallet
 
 import jetbrains.buildServer.configs.kotlin.v2018_2.BuildStep
 import jetbrains.buildServer.configs.kotlin.v2018_2.BuildSteps

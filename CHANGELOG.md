@@ -1,5 +1,9 @@
 # Change Log
 
+## Version 4.0.0 (2019-04-08)
+
+-   Prepare library for open source release
+
 ## Version 3.2.0 (2018-12-11)
 
 -   Update to TC 2018.2
