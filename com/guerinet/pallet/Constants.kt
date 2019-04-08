@@ -1,4 +1,4 @@
-package ca.ohri.pallet
+package com.guerinet.pallet
 
 object Id {
 

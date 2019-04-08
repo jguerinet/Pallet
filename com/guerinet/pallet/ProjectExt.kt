@@ -2,7 +2,7 @@
  * Copyright 2015-2018 Ottawa mHealth. All rights reserved.
  */
 
-package ca.ohri.pallet
+package com.guerinet.pallet
 
 import jetbrains.buildServer.configs.kotlin.v2018_2.Project
 import jetbrains.buildServer.configs.kotlin.v2018_2.RelativeId
@@ -81,4 +81,11 @@ fun Project.releasesHotfixesVcsRoot(
  * Adds a Git Vcs root for the develop branch. Uses the [url] and the [authPassword]. Calls [gitVcsRoot]
  */
 fun Project.developVcsRoot(url: String, authPassword: String) =
-    vcsRoot(gitVcsRoot(Id.DEVELOP, url, authPassword, branch = Git.DEVELOP))
+    vcsRoot(
+        gitVcsRoot(
+            Id.DEVELOP,
+            url,
+            authPassword,
+            branch = Git.DEVELOP
+        )
+    )

@@ -2,7 +2,7 @@
  * Copyright 2015-2018 Ottawa mHealth. All rights reserved.
  */
 
-package ca.ohri.pallet
+package com.guerinet.pallet
 
 import jetbrains.buildServer.configs.kotlin.v2018_2.BuildType
 import jetbrains.buildServer.configs.kotlin.v2018_2.DslContext
