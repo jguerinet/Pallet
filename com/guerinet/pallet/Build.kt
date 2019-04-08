@@ -1,5 +1,17 @@
 /*
- * Copyright 2015-2018 Ottawa mHealth. All rights reserved.
+ * Copyright (c) 2018-2019 Julien Guerinet
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *    http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
  */
 
 package com.guerinet.pallet
@@ -24,10 +36,10 @@ object Type {
 
 /**
  * Creates a BuildType for the [title] (which is used as the Id and the name). The optional
- *  [shouldTriggerOnCommit] determines whether a new commit to a watched branhc should trigger a
- *  build. The optional [referenceName] is used to set up a branch trigger. [vcsRootId] tells us
- *  what Vcs root to use, defaults to the settings root. [shouldBuildDefaultBranch] tells us whether
- *  the default branch should be listened to or not. The optional [artifactsPath] is the path to the
+ *  [shouldTriggerOnCommit] determines whether a new commit to a watched branch should trigger a
+ *  build. The optional [referenceName] is used to set up a branch trigger, as is [excludedUsernamesFromTrigger].
+ *  [vcsRootId] tells us what Vcs root to use, defaults to the settings root. [shouldBuildDefaultBranch] tells us
+ *  whether the default branch should be listened to or not. The optional [artifactsPath] is the path to the
  *  generated artifacts. The [artifactBuilds] is the number of builds to keep the artifacts for
  *  (defaults to 10). The [historyBuilds] is the number of builds to keep the build histories for
  *  (defaults to 50). The [init] block allows you to initialize other things, such as build
@@ -39,6 +51,7 @@ fun Project.build(
     vcsRootId: Id,
     shouldTriggerOnCommit: Boolean = true,
     referenceName: String = "",
+    excludedUsernamesFromTrigger: List<String> = listOf(),
     shouldBuildDefaultBranch: Boolean = false,
     artifactsPath: String? = null,
     artifactBuilds: Int = 10,
@@ -78,13 +91,8 @@ fun Project.build(
         triggers {
             if (shouldTriggerOnCommit) {
                 vcs {
-                    // Always set up the Git trigger to not start if mHealthAdmin commits
-                    triggerRules = """
-                        -:user=mhealthadmin:**
-                        -:user=mhealthteam:**
-                        -:user=mhealthadmin <mhealthteam@toh.ca>:**
-                    """.trimIndent()
-
+                    // Always set up the Git trigger to not start if the excluded usernames commit
+                    triggerRules = excludedUsernamesFromTrigger.joinToString("\n") { "-:user=$it:**" }
                     branchFilter = referenceName
                 }
             }
