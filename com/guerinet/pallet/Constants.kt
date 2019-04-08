@@ -1,3 +1,19 @@
+/*
+ * Copyright (c) 2018-2019 Julien Guerinet
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *    http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
 package com.guerinet.pallet
 
 object Id {
@@ -14,9 +30,6 @@ object Id {
 
 object Git {
 
-    /** Default Git Username */
-    const val USERNAME = "mHealthAdmin"
-
     /** Master branch constant */
     const val MASTER = "master"
 
@@ -30,9 +43,9 @@ object Git {
     const val HOTFIXES = "(hotfix-*)"
 
     /**
-     * Returns the full GitHub Url for the [repoName] in the Ottawa mHealth organization
+     * Returns the full GitHub Url for the [repo] (username/repoName)
      */
-    fun getUrl(repoName: String) = "https://github.com/Ottawa-mHealth/$repoName"
+    fun getUrl(repo: String) = "https://github.com/$repo"
 
     /**
      * Returns the String to use to add a pull merge ref to a [branch]. Defaults to any, (*)
