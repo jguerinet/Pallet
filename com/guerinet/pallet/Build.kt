@@ -31,6 +31,7 @@ object Type {
     const val MERGES = "Merges"
     const val CANARY = "Canary"
     const val ALPHA = "Alpha"
+    const val BETA = "Beta"
     const val RELEASE = "Release"
 }
 
