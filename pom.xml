@@ -4,24 +4,15 @@
     <groupId>ca.ohri</groupId>
     <artifactId>Pallet</artifactId>
     <version>3.0.0</version>
-
-    <parent>
-        <groupId>org.jetbrains.teamcity</groupId>
-        <artifactId>configs-dsl-kotlin-parent</artifactId>
-        <version>1.0-SNAPSHOT</version>
-    </parent>
+    <properties>
+        <kotlin.version>1.3.21</kotlin.version>
+        <teamcity.dsl.version>2018.2</teamcity.dsl.version>
+    </properties>
 
     <repositories>
         <repository>
             <id>jetbrains-all</id>
             <url>http://download.jetbrains.com/teamcity-repository</url>
-            <snapshots>
-                <enabled>true</enabled>
-            </snapshots>
-        </repository>
-        <repository>
-            <id>teamcity-server</id>
-            <url>https://ottawa-mhealth.ngrok.io/app/dsl-plugins-repository</url>
             <snapshots>
                 <enabled>true</enabled>
             </snapshots>
