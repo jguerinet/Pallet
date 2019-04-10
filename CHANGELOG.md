@@ -40,7 +40,7 @@
 
 ## Version 1.0.4 (2018-10-16)
 
--   Fix bugs from renaming to pallet. 
+-   Fix bugs from renaming to pallet.
 
 ## Version 1.0.3 (2018-10-12)
 
