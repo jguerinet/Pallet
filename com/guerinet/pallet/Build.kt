@@ -87,7 +87,6 @@ fun Project.build(
             buildDefaultBranch = shouldBuildDefaultBranch
         }
 
-
         triggers {
             if (shouldTriggerOnCommit) {
                 vcs {
