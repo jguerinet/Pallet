@@ -52,6 +52,14 @@ fun BuildSteps.assembleAndroid(title: String): BuildStep = gradle {
 }
 
 /**
+ * Returns a build step to run unit tests for a [configuration] (defaults to debug)
+ */
+fun BuildSteps.unitTestsAndroid(configuration: String = "debug"): BuildStep = gradle {
+    name = "Unit Tests"
+    tasks = "test${configuration.capitalize()}UnitTest"
+}
+
+/**
  * Returns a build step to test an APK on Android
  */
 fun BuildSteps.testAndroid(): BuildStep = gradle {
