@@ -88,7 +88,7 @@
                             <target name="ktlint">
                                 <java taskname="ktlint" dir="${basedir}" fork="true" failonerror="true"
                                       classpathref="maven.plugin.classpath" classname="com.pinterest.ktlint.Main">
-                                    <arg value="com/guerinet/pallet/**/*.kt"/>
+                                    <arg value="src/**/*.kt"/>
                                 </java>
                             </target>
                         </configuration>
@@ -104,7 +104,7 @@
                                 <java taskname="ktlint" dir="${basedir}" fork="true" failonerror="true"
                                       classpathref="maven.plugin.classpath" classname="com.pinterest.ktlint.Main">
                                     <arg value="-F"/>
-                                    <arg value="com/guerinet/pallet/**/*.kt"/>
+                                    <arg value="src/**/*.kt"/>
                                 </java>
                             </target>
                         </configuration>
