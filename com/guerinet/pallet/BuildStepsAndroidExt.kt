@@ -52,7 +52,7 @@ fun BuildSteps.assembleAndroid(title: String): BuildStep = gradle {
 }
 
 /**
- * Returns a build step to run unit tests for a [configuration] (defaults to debug)
+ * Returns a build step to run unit tests for a [configuration] (defaults to debug) on Android
  */
 fun BuildSteps.unitTestsAndroid(configuration: String = "debug"): BuildStep = gradle {
     name = "Unit Tests"
@@ -60,11 +60,11 @@ fun BuildSteps.unitTestsAndroid(configuration: String = "debug"): BuildStep = gr
 }
 
 /**
- * Returns a build step to test an APK on Android
+ * Returns a build step to run instrumentation tests for a [configuration] (defaults to debug) on Android
  */
-fun BuildSteps.testAndroid(): BuildStep = gradle {
+fun BuildSteps.instrumentationTestsAndroid(configuration: String = "debug"): BuildStep = gradle {
     name = "Run Espresso Tests"
-    tasks = "connectedAndroidTest"
+    tasks = "connected${configuration.capitalize()}AndroidTest"
 }
 
 /**
