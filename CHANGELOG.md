@@ -1,5 +1,12 @@
 # Change Log
 
+## Version 5.0.0 (2019-05-15)
+
+-   Add option to run unit tests and instrumentation tests on Android
+-   Set up ktlint
+-   Switch Pallet to be reachable via Jitpack as opposed to a Git submodule
+-   Move files into conventional folder structure
+
 ## Version 4.0.0 (2019-04-08)
 
 -   Prepare library for open source release
