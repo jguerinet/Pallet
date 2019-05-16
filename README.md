@@ -1,4 +1,6 @@
 # Pallet
+[![](https://jitpack.io/v/com.guerinet/pallet.svg)](https://jitpack.io/#com.guerinet/pallet)
+
 
 ## Summary
 
@@ -6,14 +8,20 @@ Kotlin library with utility functions for the TeamCity Kotlin DSL.
 
 ## Instructions
 
-Dependencies in private repositories are not yet supported in TeamCity. This therefore needs to be added as a git submodule:
+To include this in your project, you can add it with Maven by using [JitPack](https://jitpack.io). Replace X.X.X below with the latest version found on the status badge above:
 
--   `cd .teamcity`
--   `git submodule add -b master https://github.com/jguerinet/Pallet.git`
+    <repositories>
+        <repository>
+            <id>jitpack.io</id>
+            <url>https://jitpack.io</url>
+        </repository>
+    </repositories>
 
-And commit the result.
-
-You may then use any of Pallet's classes and methods as needed in your Kotlin DSL script.
+    <dependency>
+        <groupId>com.guerinet</groupId>
+        <artifactId>pallet</artifactId>
+        <version>X.X.X</version>
+    </dependency>
 
 ## Branches
 
