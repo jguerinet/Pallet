@@ -68,11 +68,19 @@ fun BuildSteps.instrumentationTestsAndroid(configuration: String = "debug"): Bui
 }
 
 /**
+ * Runs the unit tests and compiles the results
+ */
+fun BuildSteps.unitTestReportAndroid(): BuildStep = gradle {
+    name = "Run Unit Tests and Compile Report"
+    tasks = "unitTestReport"
+}
+
+/**
  * Runs all of the tests and compiles all of the results together
  */
-fun BuildSteps.fullTestsAndroid(): BuildStep = gradle {
-    name = "Run All Tests"
-    tasks = "jacocoTestReport"
+fun BuildSteps.fullTestReportAndroid(): BuildStep = gradle {
+    name = "Run All Tests and Compile Report"
+    tasks = "fullTestReport"
 }
 
 /**

@@ -1,7 +1,8 @@
 # Change Log
 
-## Version 5.0.0 (2019-05-15)
+## Version 5.0.0 (2019-05-16)
 
+-   Converted project to Gradle
 -   Add option to run unit tests and instrumentation tests on Android
 -   Set up ktlint
 -   Switch Pallet to be reachable via Jitpack as opposed to a Git submodule
