@@ -39,7 +39,8 @@ object Type {
  * Creates a BuildType for the [title] (which is used as the Id and the name). The optional
  *  [shouldTriggerOnCommit] determines whether a new commit to a watched branch should trigger a
  *  build. The optional [referenceName] is used to set up a branch trigger, as is [excludedUsernamesFromTrigger].
- *  [vcsRootId] tells us what Vcs root to use, defaults to the settings root. The optional [artifactsPath] is the path to the
+ *  [vcsRootId] tells us what Vcs root to use, defaults to the settings root. [shouldBuildDefaultBranch] tells us
+ *  whether the default branch should be listened to or not. The optional [artifactsPath] is the path to the
  *  generated artifacts. The [artifactBuilds] is the number of builds to keep the artifacts for
  *  (defaults to 10). The [historyBuilds] is the number of builds to keep the build histories for
  *  (defaults to 50). The [init] block allows you to initialize other things, such as build
@@ -52,6 +53,7 @@ fun Project.build(
     shouldTriggerOnCommit: Boolean = true,
     referenceName: String = "",
     excludedUsernamesFromTrigger: List<String> = listOf(),
+    shouldBuildDefaultBranch: Boolean = false,
     artifactsPath: String? = null,
     artifactBuilds: Int = 10,
     historyBuilds: Int = 50,
@@ -83,6 +85,7 @@ fun Project.build(
         vcs {
             root(vcsRootId)
             DslContext.settingsRoot
+            buildDefaultBranch = shouldBuildDefaultBranch
         }
 
         triggers {
