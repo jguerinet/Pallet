@@ -9,8 +9,5 @@
         <module name="Pallet" />
       </profile>
     </annotationProcessing>
-    <bytecodeTargetLevel>
-      <module name="Pallet" target="1.5" />
-    </bytecodeTargetLevel>
   </component>
 </project>
