@@ -1,5 +1,9 @@
 # Change Log
 
+## Version 5.0.3 (2019-05-27)
+
+-   Fixed the `testReportAndroid()` changes
+
 ## Version 5.0.2 (2019-05-27)
 
 -   Updated TeamCity to 2019.1
