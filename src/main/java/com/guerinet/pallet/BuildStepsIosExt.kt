@@ -76,7 +76,4 @@ fun BuildSteps.carthageIos(): BuildStep = script {
 /**
  * Returns a build step to install the pods on iOS
  */
-fun BuildSteps.podsIos(): BuildStep = script {
-    name = "Pod Install"
-    scriptContent = "bundle exec fastlane pods"
-}
+fun BuildSteps.podsIos(): BuildStep = fastlane("pods", "Pod Install")
