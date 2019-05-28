@@ -33,7 +33,7 @@ fun BuildFeatures.testReportAndroid(vararg filePaths: String) = feature {
 
     // Reduce the list of directories to one String
     val directories = if (filePaths.isNotEmpty()) {
-        filePaths.reduce { acc, s -> "$acc\n+:%teamcity.build.checkoutDir%/$s/**.xml" }
+        filePaths.joinToString("\n") { "+:%teamcity.build.checkoutDir%/$it/**.xml" }
     } else {
         ""
     }
