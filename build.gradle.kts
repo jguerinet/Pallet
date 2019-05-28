@@ -13,7 +13,7 @@ plugins {
 apply(from = "https://raw.githubusercontent.com/jguerinet/Gradle-Artifact-Scripts/master/spotless.gradle")
 
 group = "com.guerinet"
-version = "5.0.1"
+version = "5.0.2"
 
 buildscript {
 
@@ -23,7 +23,6 @@ buildscript {
 
     dependencies {
         classpath("com.diffplug.spotless:spotless-plugin-gradle:3.23.0")
-        classpath("com.github.ben-manes:gradle-versions-plugin:0.21.0")
     }
 }
 

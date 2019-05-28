@@ -1,5 +1,12 @@
 # Change Log
 
+## Version 5.0.2 (2019-05-27)
+
+-   Updated TeamCity to 2019.1
+-   Updated deprecated call
+-   Changed `testReportAndroid()` to take multiple directories
+-   Added step to run fastlane command
+
 ## Version 5.0.0 (2019-05-16)
 
 -   Converted project to Gradle
