@@ -1,6 +1,6 @@
 # Pallet
-[![](https://jitpack.io/v/com.guerinet/pallet.svg)](https://jitpack.io/#com.guerinet/pallet)
 
+[![](https://jitpack.io/v/com.guerinet/pallet.svg)](https://jitpack.io/#com.guerinet/pallet)
 
 ## Summary
 

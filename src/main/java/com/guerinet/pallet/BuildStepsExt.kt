@@ -37,8 +37,14 @@ fun BuildSteps.gem(): BuildStep = script {
 /**
  * Returns a build step to deploy the current version using the [lane]
  */
-fun BuildSteps.deploy(lane: String): BuildStep = script {
-    name = "Deploy"
+fun BuildSteps.deploy(lane: String) = fastlane(lane, "Deploy")
+
+/**
+ * Returns a build step to run a fastlane [lane]. uses the [name] as the step name (defaults to the capitalized lane)
+ *  Note: This assumes fastlane has been installed via Gemfile
+ */
+fun BuildSteps.fastlane(lane: String, name: String = lane.capitalize()) = script {
+    this.name = name
     scriptContent = "bundle exec fastlane ${lane.toLowerCase()}"
 }
 

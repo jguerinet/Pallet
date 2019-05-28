@@ -85,7 +85,13 @@ fun Project.build(
         vcs {
             root(vcsRootId)
             DslContext.settingsRoot
-            buildDefaultBranch = shouldBuildDefaultBranch
+            if (!shouldBuildDefaultBranch) {
+                // If we shouldn't build the default branch, add the filter to remove it
+                branchFilter = """
+                +:*
+                -:<default>
+                """.trimIndent()
+            }
         }
 
         triggers {

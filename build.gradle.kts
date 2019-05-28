@@ -1,38 +1,5 @@
-/*
- * Copyright (c) 2018-2019 Julien Guerinet
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- *    http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */
-
-/*
- * Copyright (c) 2018-2019 Julien Guerinet
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- *    http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */
-
 object Version {
-    const val kotlin = "1.3.31"
-    const val teamCityDsl = "2018.2"
+    const val teamCityDsl = "2019.1"
     const val teamCityPlugins = "1.0-SNAPSHOT"
 }
 
@@ -46,7 +13,7 @@ plugins {
 apply(from = "https://raw.githubusercontent.com/jguerinet/Gradle-Artifact-Scripts/master/spotless.gradle")
 
 group = "com.guerinet"
-version = "5.0.1"
+version = "5.0.2"
 
 buildscript {
 
@@ -56,7 +23,6 @@ buildscript {
 
     dependencies {
         classpath("com.diffplug.spotless:spotless-plugin-gradle:3.23.0")
-        classpath("com.github.ben-manes:gradle-versions-plugin:0.21.0")
     }
 }
 
@@ -68,8 +34,8 @@ repositories {
 }
 
 dependencies {
-    implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8:${Version.kotlin}")
-    implementation("org.jetbrains.kotlin:kotlin-script-runtime:${Version.kotlin}")
+    implementation(kotlin("stdlib-jdk8"))
+    implementation(kotlin("script-runtime"))
     implementation("org.jetbrains.teamcity:configs-dsl-kotlin:${Version.teamCityDsl}")
     implementation("org.jetbrains.teamcity:configs-dsl-kotlin-bundled:${Version.teamCityPlugins}")
     implementation("org.jetbrains.teamcity:configs-dsl-kotlin-commandLineRunner:${Version.teamCityPlugins}")

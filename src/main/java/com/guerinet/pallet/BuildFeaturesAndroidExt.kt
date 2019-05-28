@@ -25,13 +25,18 @@ import jetbrains.buildServer.configs.kotlin.v2018_2.BuildFeatures
  */
 
 /**
- * Returns a build feature to parse the Android test report using the [filePath] within the build folder to find the xml
+ * Returns a build feature to parse the Android test report using the [filePaths] within the build folder to find the xml
  */
-fun BuildFeatures.testReportAndroid(filePath: String) = feature {
+fun BuildFeatures.testReportAndroid(vararg filePaths: String) = feature {
     type = "xml-report-plugin"
     param("xmlReportParsing.reportType", "gtest")
-    param(
-        "xmlReportParsing.reportDirs",
-        "+:%teamcity.build.checkoutDir%/app/build/$filePath/**.xml"
-    )
+
+    // Reduce the list of directories to one String
+    val directories = if (filePaths.isNotEmpty()) {
+        filePaths.reduce { acc, s -> "$acc\n+:%teamcity.build.checkoutDir%/$s/**.xml" }
+    } else {
+        ""
+    }
+
+    param("xmlReportParsing.reportDirs", directories)
 }
