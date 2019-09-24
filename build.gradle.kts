@@ -5,15 +5,15 @@ object Version {
 
 plugins {
     java
-    kotlin("jvm") version "1.3.31"
+    kotlin("jvm") version "1.3.50"
     maven
-    id("com.github.ben-manes.versions") version "0.21.0"
+    id("com.github.ben-manes.versions") version "0.25.0"
 }
 
 apply(from = "https://raw.githubusercontent.com/jguerinet/Gradle-Artifact-Scripts/master/spotless.gradle")
 
 group = "com.guerinet"
-version = "5.0.3"
+version = "5.1.0"
 
 buildscript {
 
@@ -22,7 +22,7 @@ buildscript {
     }
 
     dependencies {
-        classpath("com.diffplug.spotless:spotless-plugin-gradle:3.23.0")
+        classpath("com.diffplug.spotless:spotless-plugin-gradle:3.24.3")
     }
 }
 

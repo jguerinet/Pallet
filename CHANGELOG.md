@@ -1,5 +1,9 @@
 # Change Log
 
+## Version 5.1.0 (2019-09-24)
+
+-   Fix the extraction and incrementing of the build number on iOS 
+
 ## Version 5.0.3 (2019-05-27)
 
 -   Fixed the `testReportAndroid()` changes
