@@ -27,34 +27,31 @@ import jetbrains.buildServer.configs.kotlin.v2018_2.buildSteps.script
  */
 
 /**
- * Returns a build step to increment the build number on iOS
+ * Returns a build step to increment the build number on iOS using the [infoPlistPath] to get the Info.plist file
+ *  [infoPlistPath] should be similar to path/to/Info.plist
  */
-fun BuildSteps.incrementBuildIos(): BuildStep = script {
+fun BuildSteps.incrementBuildIos(infoPlistPath: String): BuildStep = script {
     name = "Increment Build Number"
     scriptContent = """
-        INFOPLIST=${'$'}(xcodebuild -showBuildSettings | grep -i 'INFOPLIST_FILE')
-        INFOPLIST_FILE=${'$'}{INFOPLIST/INFOPLIST_FILE = /}
-
-        buildNumber=${'$'}(/usr/libexec/PlistBuddy -c "Print CFBundleVersion" ${'$'}INFOPLIST_FILE)
+        buildNumber=${'$'}(/usr/libexec/PlistBuddy -c "Print CFBundleVersion" $infoPlistPath)
         buildNumber=${'$'}((${'$'}buildNumber + 1))
-        /usr/libexec/PlistBuddy -c "Set :CFBundleVersion ${'$'}buildNumber" ${'$'}INFOPLIST_FILE
+        /usr/libexec/PlistBuddy -c "Set :CFBundleVersion ${'$'}buildNumber" $$infoPlistPath
     """.trimIndent()
 }
 
 /**
- * Returns a build step to extract the current version on iOS
+ * Returns a build step to extract the current version on iOS using the [infoPlistPath] to get the Info.plist file
+ *  [infoPlistPath] should be similar to path/to/Info.plist
  */
-fun BuildSteps.extractIos(isBuildNumberIncluded: Boolean = false): BuildStep = script {
+fun BuildSteps.extractIos(infoPlistPath: String, isBuildNumberIncluded: Boolean = false): BuildStep = script {
     name = "Extract Version"
     scriptContent = """
         # Grab the build number and build name
-        INFOPLIST=${'$'}(xcodebuild -showBuildSettings | grep -i 'INFOPLIST_FILE')
-        INFOPLIST_FILE=${'$'}{INFOPLIST/INFOPLIST_FILE = /}
-        buildVersion=${'$'}(/usr/libexec/PlistBuddy -c "Print CFBundleShortVersionString" ${'$'}INFOPLIST_FILE)
+        buildVersion=${'$'}(/usr/libexec/PlistBuddy -c "Print CFBundleShortVersionString" $infoPlistPath)
 
         VERSION=""
         if [ "$isBuildNumberIncluded" = true ]; then
-            buildNumber=${'$'}(/usr/libexec/PlistBuddy -c "Print CFBundleVersion" ${'$'}INFOPLIST_FILE)
+            buildNumber=${'$'}(/usr/libexec/PlistBuddy -c "Print CFBundleVersion" $infoPlistPath)
             VERSION="${'$'}buildVersion.${'$'}buildNumber"
         else
             VERSION="${'$'}buildVersion"
