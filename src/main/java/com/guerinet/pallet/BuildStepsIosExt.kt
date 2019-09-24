@@ -35,7 +35,7 @@ fun BuildSteps.incrementBuildIos(infoPlistPath: String): BuildStep = script {
     scriptContent = """
         buildNumber=${'$'}(/usr/libexec/PlistBuddy -c "Print CFBundleVersion" $infoPlistPath)
         buildNumber=${'$'}((${'$'}buildNumber + 1))
-        /usr/libexec/PlistBuddy -c "Set :CFBundleVersion ${'$'}buildNumber" $$infoPlistPath
+        /usr/libexec/PlistBuddy -c "Set :CFBundleVersion ${'$'}buildNumber" $infoPlistPath
     """.trimIndent()
 }
 

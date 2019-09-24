@@ -1,5 +1,9 @@
 # Change Log
 
+## Version 5.1.1 (2019-09-24)
+
+-   v5.1.0 bug fix
+
 ## Version 5.1.0 (2019-09-24)
 
 -   Fix the extraction and incrementing of the build number on iOS 
