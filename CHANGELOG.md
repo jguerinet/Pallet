@@ -1,12 +1,17 @@
 # Change Log
 
+## Version 5.2.0 (2019-11-19)
+
+-   Update dependencies
+-   Added the `Dev` and `QA` build types
+
 ## Version 5.1.1 (2019-09-24)
 
 -   v5.1.0 bug fix
 
 ## Version 5.1.0 (2019-09-24)
 
--   Fix the extraction and incrementing of the build number on iOS 
+-   Fix the extraction and incrementing of the build number on iOS
 
 ## Version 5.0.3 (2019-05-27)
 

@@ -13,7 +13,7 @@ plugins {
 apply(from = "https://raw.githubusercontent.com/jguerinet/Gradle-Artifact-Scripts/master/spotless.gradle")
 
 group = "com.guerinet"
-version = "5.1.1"
+version = "5.2.0"
 
 buildscript {
 
