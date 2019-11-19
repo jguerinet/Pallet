@@ -29,6 +29,8 @@ import jetbrains.buildServer.configs.kotlin.v2018_2.triggers.vcs
 object Type {
 
     const val MERGES = "Merges"
+    const val DEV = "Dev"
+    const val QA = "QA"
     const val CANARY = "Canary"
     const val ALPHA = "Alpha"
     const val BETA = "Beta"
