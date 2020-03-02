@@ -1,13 +1,13 @@
 object Version {
-    const val teamCityDsl = "2019.1"
+    const val teamCityDsl = "2019.2"
     const val teamCityPlugins = "1.0-SNAPSHOT"
 }
 
 plugins {
     java
-    kotlin("jvm") version "1.3.60"
+    kotlin("jvm") version "1.3.61"
     maven
-    id("com.github.ben-manes.versions") version "0.27.0"
+    id("com.github.ben-manes.versions") version "0.28.0"
 }
 
 apply(from = "https://raw.githubusercontent.com/jguerinet/Gradle-Artifact-Scripts/master/spotless.gradle")
@@ -22,7 +22,7 @@ buildscript {
     }
 
     dependencies {
-        classpath("com.diffplug.spotless:spotless-plugin-gradle:3.26.0")
+        classpath("com.diffplug.spotless:spotless-plugin-gradle:3.27.1")
     }
 }
 
