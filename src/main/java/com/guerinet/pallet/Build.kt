@@ -43,7 +43,8 @@ object Type {
  *  [shouldTriggerOnCommit] determines whether a new commit to a watched branch should trigger a
  *  build. The optional [referenceName] is used to set up a branch trigger, as is [excludedUsernamesFromTrigger].
  *  [vcsRootId] tells us what Vcs root to use, defaults to the settings root. [shouldBuildDefaultBranch] tells us
- *  whether the default branch should be listened to or not. The optional [artifactsPath] is the path to the
+ *  whether the default branch should be listened to or not. [isCleanCheckout] determines whether the files in the build
+ *  folder should be cleared before continuing (defaults to false). The optional [artifactsPath] is the path to the
  *  generated artifacts. The [artifactBuilds] is the number of builds to keep the artifacts for
  *  (defaults to 10). The [historyBuilds] is the number of builds to keep the build histories for
  *  (defaults to 50). The [init] block allows you to initialize other things, such as build
@@ -57,6 +58,7 @@ fun Project.build(
     referenceName: String = "",
     excludedUsernamesFromTrigger: List<String> = listOf(),
     shouldBuildDefaultBranch: Boolean = false,
+    isCleanCheckout: Boolean = false,
     artifactsPath: String? = null,
     artifactBuilds: Int = 10,
     historyBuilds: Int = 50,
@@ -95,6 +97,7 @@ fun Project.build(
                 -:<default>
                 """.trimIndent()
             }
+            cleanCheckout = isCleanCheckout
         }
 
         triggers {
