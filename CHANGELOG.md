@@ -1,8 +1,14 @@
 # Change Log
 
+## Version 5.3.0 (2020-03-02)
+
+-   Updated dependencies
+-   Added option to clean the build cache every time for a build
+-   Added the `Demo` build type
+
 ## Version 5.2.0 (2019-11-19)
 
--   Update dependencies
+-   Updated dependencies
 -   Added the `Dev` and `QA` build types
 
 ## Version 5.1.1 (2019-09-24)
