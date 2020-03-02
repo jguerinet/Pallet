@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2018-2019 Julien Guerinet
+ * Copyright (c) 2018-2020 Julien Guerinet
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -34,6 +34,7 @@ object Type {
     const val CANARY = "Canary"
     const val ALPHA = "Alpha"
     const val BETA = "Beta"
+    const val DEMO = "Demo"
     const val RELEASE = "Release"
 }
 
